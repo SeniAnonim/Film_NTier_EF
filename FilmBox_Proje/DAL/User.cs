@@ -14,8 +14,7 @@ namespace DAL
     
     public partial class User
     {
-        public int usersID { get; set; }
         public string KullaniciAdi { get; set; }
-        public string Sifre { get; set; }
+        public string sifre { get; set; }
     }
 }

@@ -15,6 +15,7 @@
           <Property Name="Age" Type="int" />
           <Property Name="Awards" Type="int" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="images" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -61,6 +62,7 @@
           <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FilmEndorsement" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="images" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="FilmActorDetail">
           <Key>
@@ -110,6 +112,7 @@
           <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SeriesEndorsement" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="images" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="SeriesActorDetail">
           <Key>
@@ -158,11 +161,10 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="usersID" />
+            <PropertyRef Name="KullaniciAdi" />
           </Key>
-          <Property Name="usersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK__FilmActor__Actor__31EC6D26">
           <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
@@ -454,6 +456,7 @@
           <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="FilmActorDetails" Relationship="Self.FK__FilmActor__Actor__31EC6D26" FromRole="Actor" ToRole="FilmActorDetail" />
           <NavigationProperty Name="SeriesActorDetails" Relationship="Self.FK__SeriesAct__Actor__412EB0B6" FromRole="Actor" ToRole="SeriesActorDetail" />
+          <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -510,6 +513,7 @@
           <NavigationProperty Name="FilmCategoryDetails" Relationship="Self.FK__FilmCateg__FilmI__34C8D9D1" FromRole="Film" ToRole="FilmCategoryDetail" />
           <NavigationProperty Name="FilmCustomerDetails" Relationship="Self.FK__FilmCusto__FilmI__3C69FB99" FromRole="Film" ToRole="FilmCustomerDetail" />
           <NavigationProperty Name="FilmDirectorDetails" Relationship="Self.FK__FilmDirec__FilmI__38996AB5" FromRole="Film" ToRole="FilmDirectorDetail" />
+          <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FilmActorDetail">
           <Key>
@@ -571,6 +575,7 @@
           <NavigationProperty Name="SeriesCategoryDetails" Relationship="Self.FK__SeriesCat__Serie__440B1D61" FromRole="Series" ToRole="SeriesCategoryDetail" />
           <NavigationProperty Name="SeriesCustomerDetails" Relationship="Self.FK__SeriesCus__Serie__4BAC3F29" FromRole="Series" ToRole="SeriesCustomerDetail" />
           <NavigationProperty Name="SeriesDirectorDetails" Relationship="Self.FK__SeriesDir__Serie__47DBAE45" FromRole="Series" ToRole="SeriesDirectorDetail" />
+          <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SeriesActorDetail">
           <Key>
@@ -901,11 +906,10 @@
         </EntityContainer>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="usersID" />
+            <PropertyRef Name="KullaniciAdi" />
           </Key>
-          <Property Name="usersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -916,6 +920,7 @@
           <EntitySetMapping Name="Actors">
             <EntityTypeMapping TypeName="FilmBox_DbModel.Actor">
               <MappingFragment StoreEntitySet="Actor">
+                <ScalarProperty Name="images" ColumnName="images" />
                 <ScalarProperty Name="ActorId" ColumnName="ActorId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -963,6 +968,7 @@
           <EntitySetMapping Name="Films">
             <EntityTypeMapping TypeName="FilmBox_DbModel.Film">
               <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="images" ColumnName="images" />
                 <ScalarProperty Name="FilmId" ColumnName="FilmId" />
                 <ScalarProperty Name="FilmName" ColumnName="FilmName" />
                 <ScalarProperty Name="Views" ColumnName="Views" />
@@ -1017,6 +1023,7 @@
           <EntitySetMapping Name="Series">
             <EntityTypeMapping TypeName="FilmBox_DbModel.Series">
               <MappingFragment StoreEntitySet="Series">
+                <ScalarProperty Name="images" ColumnName="images" />
                 <ScalarProperty Name="SeriesId" ColumnName="SeriesId" />
                 <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
                 <ScalarProperty Name="Views" ColumnName="Views" />
@@ -1082,9 +1089,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FilmBox_DbModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
                 <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
-                <ScalarProperty Name="usersID" ColumnName="usersID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -17,6 +17,7 @@ namespace DTO.FilmBoxDTO
         public string Language { get; set; }
         public decimal FilmEndorsement { get; set; }
         public bool Status { get; set; }
+        public string images { get; set; }
 
     }
 }

@@ -12,6 +12,7 @@
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="FilmActorDetails" Relationship="Self.FK__FilmActor__Actor__31EC6D26" FromRole="Actor" ToRole="FilmActorDetail" />
     <NavigationProperty Name="SeriesActorDetails" Relationship="Self.FK__SeriesAct__Actor__412EB0B6" FromRole="Actor" ToRole="SeriesActorDetail" />
+    <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -68,6 +69,7 @@
     <NavigationProperty Name="FilmCategoryDetails" Relationship="Self.FK__FilmCateg__FilmI__34C8D9D1" FromRole="Film" ToRole="FilmCategoryDetail" />
     <NavigationProperty Name="FilmCustomerDetails" Relationship="Self.FK__FilmCusto__FilmI__3C69FB99" FromRole="Film" ToRole="FilmCustomerDetail" />
     <NavigationProperty Name="FilmDirectorDetails" Relationship="Self.FK__FilmDirec__FilmI__38996AB5" FromRole="Film" ToRole="FilmDirectorDetail" />
+    <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="FilmActorDetail">
     <Key>
@@ -129,6 +131,7 @@
     <NavigationProperty Name="SeriesCategoryDetails" Relationship="Self.FK__SeriesCat__Serie__440B1D61" FromRole="Series" ToRole="SeriesCategoryDetail" />
     <NavigationProperty Name="SeriesCustomerDetails" Relationship="Self.FK__SeriesCus__Serie__4BAC3F29" FromRole="Series" ToRole="SeriesCustomerDetail" />
     <NavigationProperty Name="SeriesDirectorDetails" Relationship="Self.FK__SeriesDir__Serie__47DBAE45" FromRole="Series" ToRole="SeriesDirectorDetail" />
+    <Property Name="images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SeriesActorDetail">
     <Key>
@@ -459,10 +462,9 @@
   </EntityContainer>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="usersID" />
+      <PropertyRef Name="KullaniciAdi" />
     </Key>
-    <Property Name="usersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

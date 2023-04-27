@@ -18,7 +18,9 @@ namespace DTO.FilmBoxDTO
         public decimal SeriesEndorsement { get; set; }
         public bool Status { get; set; }
 
+        public string images { get; set; }
 
-  
+
+
     }
 }

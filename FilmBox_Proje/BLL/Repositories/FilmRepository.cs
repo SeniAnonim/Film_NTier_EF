@@ -20,7 +20,7 @@ namespace BLL.Repositories
 
         public List<FilmCs> GetAll()
         {
-            return db.Films.Select(c => new FilmCs { FilmId = c.FilmId, FilmName = c.FilmName, Views = c.Views, Vote = (int)c.Vote, FilmDuration = c.FilmDuration, DateOfConstruction = (DateTime)c.DateOfConstruction, Language = c.Language, FilmEndorsement = (decimal)c.FilmEndorsement, Status = c.Status }).ToList();
+            return db.Films.Select(c => new FilmCs { FilmId = c.FilmId, FilmName = c.FilmName, Views = c.Views, Vote = (int)c.Vote, FilmDuration = c.FilmDuration, DateOfConstruction = (DateTime)c.DateOfConstruction, Language = c.Language, FilmEndorsement = (decimal)c.FilmEndorsement, Status = c.Status ,images=c.images }).ToList();
         }
 
         public FilmCs GetByID(int ID)

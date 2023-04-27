@@ -27,6 +27,7 @@ namespace DAL
         public Nullable<int> Age { get; set; }
         public Nullable<int> Awards { get; set; }
         public string Gender { get; set; }
+        public string images { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FilmActorDetail> FilmActorDetails { get; set; }

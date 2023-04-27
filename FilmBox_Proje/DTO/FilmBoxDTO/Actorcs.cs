@@ -16,6 +16,7 @@ namespace DTO.FilmBoxDTO
         public int Awards { get; set; }
         public string Gender { get; set; }
 
-  
+        public string images { get; set; }
+
     }
 }

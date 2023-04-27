@@ -13,32 +13,32 @@ namespace BLL.Repositories
         FilmBox_DbEntities db = Db_Tools.DbInstance;
         public List<UsersDTO> GetAll()
         {
-           return db.Users.Select(c => new UsersDTO { UserID = c.usersID, UserName = c.KullaniciAdi, Password = c.Sifre }).ToList();
+           return db.Users.Select(c => new UsersDTO { UserName = c.KullaniciAdi, Password = c.sifre }).ToList();
         }
-        public void Delete(int id)
+        public void Delete(string id)
         {
             User gelen = db.Users.Find(id);
             db.Users.Remove(gelen);
             db.SaveChanges();
         }
 
-        public UsersDTO GetByName(string kullanici,string sifre)
+        public UsersDTO GetByName(string kullanici)
         {
           User gelen=  db.Users.Find(kullanici);
-            return new UsersDTO { UserName = gelen.KullaniciAdi,Password=gelen.Sifre };
+            return new UsersDTO { UserName = gelen.KullaniciAdi,Password=gelen.sifre };
 
         }
 
         public void Insert(UsersDTO item)
         {
-            db.Users.Add(new User { KullaniciAdi = item.UserName, Sifre = item.Password});
+            db.Users.Add(new User { KullaniciAdi = item.UserName, sifre = item.Password});
             db.SaveChanges();
         }
 
         public void Update(UsersDTO item)
         {
-            User gelen = db.Users.Find(item.UserID);
-            gelen.Sifre = item.Password;
+            User gelen = db.Users.Find(item.UserName);
+            gelen.sifre = item.Password;
             db.SaveChanges();
         }
     }

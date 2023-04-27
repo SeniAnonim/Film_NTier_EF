@@ -13,6 +13,7 @@ namespace DTO.FilmBoxDTO
         public int ActorId { get; set; }
         public string Role { get; set; }
         public int ActorRate { get; set; }
+        public int actorler {get; set;}
 
     }
 }

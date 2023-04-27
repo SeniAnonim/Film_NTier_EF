@@ -20,7 +20,7 @@ namespace BLL.Repositories
 
         public List<SeriesCs> GetAll()
         {
-            return db.Series.Select(c=> new SeriesCs {SeriesId=c.SeriesId,SeriesName=c.SeriesName,Vote=(int)c.Vote,SeriesDuration=c.SeriesDuration,DateOfConstruction=(DateTime)c.DateOfConstruction,Language=c.Language,SeriesEndorsement=(decimal)c.SeriesEndorsement,Status=c.Status}).ToList();
+            return db.Series.Select(c=> new SeriesCs {SeriesId=c.SeriesId,SeriesName=c.SeriesName,Views=c.Views,Vote=(int)c.Vote,SeriesDuration=c.SeriesDuration,DateOfConstruction=(DateTime)c.DateOfConstruction,Language=c.Language,SeriesEndorsement=(decimal)c.SeriesEndorsement,Status=c.Status , images=c.images}).ToList();
         }
 
         public SeriesCs GetByID(int ID)

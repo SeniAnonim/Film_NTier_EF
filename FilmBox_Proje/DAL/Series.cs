@@ -32,6 +32,7 @@ namespace DAL
         public string Language { get; set; }
         public Nullable<decimal> SeriesEndorsement { get; set; }
         public bool Status { get; set; }
+        public string images { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SeriesActorDetail> SeriesActorDetails { get; set; }

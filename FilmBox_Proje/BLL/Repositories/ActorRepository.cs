@@ -22,13 +22,13 @@ namespace BLL.Repositories
 
         public List<Actorcs> GetAll()
         {
-            return db.Actors.Select(c => new Actorcs { ActorId = c.ActorId, FirstName = c.FirstName, LastName = c.LastName, Age = (int)c.Age, Awards = (int)c.Awards, Gender = c.Gender }).ToList();
+            return db.Actors.Select(c => new Actorcs { ActorId = c.ActorId, FirstName = c.FirstName, LastName = c.LastName, Age = (int)c.Age, Awards = (int)c.Awards, Gender = c.Gender ,images=c.images}).ToList();
         }
 
         public Actorcs GetByID(int ID)
         {
             Actor act = db.Actors.Find(ID);
-            return new Actorcs { ActorId = act.ActorId, FirstName = act.FirstName, LastName = act.LastName, Age = (int)act.Age, Awards = (int)act.Awards, Gender = act.Gender };
+            return new Actorcs { ActorId = act.ActorId, FirstName = act.FirstName, LastName = act.LastName, Age = (int)act.Age, Awards = (int)act.Awards, Gender = act.Gender,images=act.images };
         }
 
         public void Insert(Actorcs item)

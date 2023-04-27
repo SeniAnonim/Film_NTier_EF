@@ -10,6 +10,7 @@
     <Property Name="Age" Type="int" />
     <Property Name="Awards" Type="int" />
     <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="images" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -56,6 +57,7 @@
     <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="FilmEndorsement" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="images" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="FilmActorDetail">
     <Key>
@@ -105,6 +107,7 @@
     <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SeriesEndorsement" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="images" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="SeriesActorDetail">
     <Key>
@@ -153,11 +156,10 @@
   </EntityType>
   <EntityType Name="Users">
     <Key>
-      <PropertyRef Name="usersID" />
+      <PropertyRef Name="KullaniciAdi" />
     </Key>
-    <Property Name="usersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
-    <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK__FilmActor__Actor__31EC6D26">
     <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
